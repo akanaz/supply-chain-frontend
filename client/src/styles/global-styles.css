@@ -1,0 +1,119 @@
+/* Dark theme base */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2 {
+  font-weight: 700;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+a {
+  color: #bb86fc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ccc;
+  font-weight: 600;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  background-color: #2a2a2a;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background: linear-gradient(145deg, #865dff, #592ee9);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(134, 93, 255, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #7631ff, #4c21cb);
+  box-shadow: 0 6px 20px rgba(118, 49, 255, 0.7);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+th {
+  background-color: #292929;
+  color: #bb86fc;
+  font-weight: 700;
+}
+
+tr:hover {
+  background-color: #2e2e2e;
+  cursor: pointer;
+}
+
+.products-table, .role-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.loader {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2rem;
+  color: #bb86fc;
+}

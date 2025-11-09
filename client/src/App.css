@@ -1,0 +1,306 @@
+body {
+  background: #18181e;
+  color: #eaeaea;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.03em;
+}
+
+.page-container {
+  padding: 44px 30px;
+  max-width: 1200px;
+  margin: 32px auto;
+  background: #23242b;
+  border-radius: 24px;
+  box-shadow: 0 14px 60px #000b;
+  min-height: 500px;
+}
+
+.main-title, .section-title {
+  color: #bb86fc;
+  font-size: 2.3rem;
+  margin-bottom: 22px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #b2b2b2;
+  margin-bottom: 24px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  background: #23233c;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0009;
+}
+
+.navbar li {
+  display: flex;
+  align-items: center;
+  font-size: 1.12rem;
+}
+
+.navbar a, .nav-logout {
+  color: #ededed;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 15px 30px;
+  border-radius: 16px;
+  transition: background 0.23s, color 0.23s;
+  font-size: 1.13rem;
+  border: none;
+}
+
+.navbar a.active, .nav-logout:focus, .nav-logout:hover {
+  background: #bb86fc;
+  color: #232323 !important;
+}
+
+button, select {
+  outline: none;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: none;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover:not(:disabled),
+select:hover:not(:disabled) {
+  box-shadow: 0 4px 20px #bb86fc99;
+  background-color: #c9a2fc;
+  color: #222;
+}
+
+button:disabled,
+select:disabled {
+  cursor: not-allowed;
+  background-color: #555;
+  color: #aaa;
+  box-shadow: none;
+}
+
+.loader {
+  color: #bb86fc;
+  font-size: 1.35rem;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.styled-table {
+  width: 100%;
+  background: #22232e;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0007;
+  margin-top: 32px;
+}
+
+.styled-table th, .styled-table td {
+  text-align: left;
+  padding: 22px 16px;
+  font-size: 1.13rem;
+}
+
+.styled-table th {
+  background: #292938;
+  color: #bb86fc;
+  font-size: 1.17rem;
+}
+
+.styled-table tr {
+  transition: background 0.17s;
+}
+.styled-table tr:hover {
+  background: #30285c;
+}
+
+.status-select {
+  font-size: 1.18rem;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 13px;
+  background: #1e1e2d;
+  color: #ececec;
+  box-shadow: inset 0 2px 7px #0007;
+}
+
+.btn-update, .btn-submit {
+  background: #bb86fc;
+  color: #232323;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 26px;
+  font-weight: 700;
+  font-size: 1.18rem;
+  margin-top: 16px;
+  transition: box-shadow 0.23s, background 0.2s;
+  cursor: pointer;
+  box-shadow: 0 4px 22px #bb86fc87;
+}
+.btn-update:disabled, .btn-submit:disabled {
+  background: #555;
+  color: #aaa;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.btn-update:hover:not(:disabled), .btn-submit:hover:not(:disabled) {
+  box-shadow: 0 7px 28px #bb86fc99;
+  background: #c9a2fc;
+}
+
+.feedback {
+  color: #12eec0;
+  font-size: 1.14rem;
+  margin-bottom: 17px;
+  font-weight: 700;
+}
+
+/* Auth/Login Page, Forms */
+.auth-box {
+  background: linear-gradient(120deg,#242343 75%,#444e88 100%);
+  border-radius: 24px;
+  max-width: 430px;
+  margin: 80px auto 0 auto;
+  box-shadow: 0 18px 54px #000c;
+  padding: 38px 40px 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.auth-logo {
+  width: 67px;
+  height: 67px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #bb86fc3c;
+}
+.auth-title {
+  color: #bb86fc;
+  margin-bottom: 26px;
+  font-weight: 800;
+  font-size: 2.15rem;
+  letter-spacing: 1px;
+}
+.login-form {
+  width: 100%;
+  margin-top: 10px;
+}
+.login-form label {
+  margin-top: 16px;
+  color: #d7d4f7;
+  font-size: 1.08rem;
+  font-weight: 700;
+  display: block;
+  padding-bottom: 2px;
+}
+.login-form input, .login-form select {
+  width: 100%;
+  background: #23223e;
+  color: #fff;
+  border: none;
+  border-radius: 13px;
+  padding: 15px 18px;
+  margin: 6px 0 10px;
+  font-size: 1.19rem;
+}
+
+.auth-error {
+  color: #ff4c81;
+  margin-top: 22px;
+  font-size: 1.11rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+/* Track Page / Flowchart Icons */
+.flowchart-card {
+  background: #242434;
+  padding: 36px 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 48px #000c;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 46px;
+  margin-bottom: 20px;
+}
+.flowchart-stage {
+  text-align: center;
+  max-width: 111px;
+  color: #cfb4ff;
+  font-weight: 700;
+  user-select: none;
+  transition: color 0.3s;
+}
+.flowchart-stage img {
+  width: 66px;
+  height: 66px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 28px #cfb4ff);
+}
+.flowchart-stage.inactive {
+  color: #555;
+  font-weight: 400;
+}
+.flowchart-stage.inactive img {
+  filter: grayscale(100%);
+}
+.flowchart-desc {
+  font-weight: 500;
+  font-size: 0.96rem;
+  line-height: 1.3;
+  color: #ddd;
+  min-height: 42px;
+}
+
+/* Add Product Page & Inputs */
+.add-product-box {
+  background: #23233c;
+  border-radius: 24px;
+  max-width: 500px;
+  margin: 60px auto 0 auto;
+  box-shadow: 0 10px 40px #000b;
+  padding: 36px 34px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-product-box label {
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: #c0b8e8;
+  font-size: 1.12rem;
+}
+.add-product-box input, .add-product-box textarea, .add-product-box select {
+  background: #23223e;
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 15px 18px;
+  margin-bottom: 16px;
+  font-size: 1.13rem;
+}
+.add-product-box button {
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .navbar ul { gap: 16px; }
+  .page-container { padding: 20px 6px; min-width: unset; }
+  .flowchart-card { gap: 22px; flex-wrap: wrap; }
+  .auth-box, .add-product-box { padding: 18px 8px; min-width: unset; }
+  .main-title, .section-title { font-size: 1.4rem; }
+}

@@ -1,0 +1,68 @@
+nav.navbar {
+  background-color: #1f1f1f;
+  padding: 20px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav.navbar ul li a {
+  color: #bb86fc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav.navbar ul li a:hover,
+nav.navbar ul li a.active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+form.product-form, form.role-form {
+  background-color: #222;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  margin-top: 20px;
+}
+
+h1, h2 {
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+}
+
+.role-section {
+  margin-top: 40px;
+}
+
+.role-section h2 {
+  margin-bottom: 15px;
+}
+
+.role-table {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-details {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.85);
+}
+
+.product-details p {
+  margin: 8px 0;
+}
