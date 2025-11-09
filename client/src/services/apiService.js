@@ -1,4 +1,8 @@
-const API_URL = "http://localhost:4000/api/products";
+// ✅ Dynamic API Base URL — works on both local and deployed environments
+const BASE_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:4000";
+
+const API_URL = `${BASE_URL}/api/products`;
 
 export async function getProducts() {
   const res = await fetch(API_URL);
@@ -23,13 +27,5 @@ export async function updateProduct(id, data) {
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error("Failed to update product");
-  return res.json();
-}
-
-export async function deleteProduct(id) {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
-  if (!res.ok) throw new Error("Failed to delete product");
   return res.json();
 }
