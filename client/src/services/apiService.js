@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-// ✅ Dynamic API Base URL — works on both local and deployed environments
+// ✅ Dynamic API base URL (works locally and on Vercel)
 const BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:4000";
-
-const API_URL = `${BASE_URL}/api/products`;
-=======
-// ✅ Dynamic API base URL (works on localhost and Vercel)
-const BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:4000";
->>>>>>> ef46bab (Fix: added deleteProduct function for Vercel build)
+  process.env.REACT_APP_API_URL || "http://localhost:10000";
 
 const API_URL = `${BASE_URL}/api/products`;
 
@@ -40,8 +32,6 @@ export async function updateProduct(id, data) {
   if (!res.ok) throw new Error("Failed to update product");
   return res.json();
 }
-<<<<<<< HEAD
-=======
 
 // 🔹 Delete product by ID
 export async function deleteProduct(id) {
@@ -51,4 +41,3 @@ export async function deleteProduct(id) {
   if (!res.ok) throw new Error("Failed to delete product");
   return res.json();
 }
->>>>>>> ef46bab (Fix: added deleteProduct function for Vercel build)
