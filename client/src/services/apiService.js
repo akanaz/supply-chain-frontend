@@ -1,6 +1,6 @@
 // ✅ Dynamic API base URL (works locally and on Vercel)
 const BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:10000";
+  process.env.REACT_APP_API_URL || "http://localhost:4000";
 
 const API_URL = `${BASE_URL}/api/products`;
 
