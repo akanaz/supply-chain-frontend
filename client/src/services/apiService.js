@@ -1,6 +1,6 @@
 // ✅ Dynamic API Base URL — works on both local and deployed environments
 const BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:10000"|| "https://supply-chain-backend-lgso.onrender.com/";
+  process.env.REACT_APP_API_URL || "http://localhost:4000";
 
 const API_URL = `${BASE_URL}/api/products`;
 
