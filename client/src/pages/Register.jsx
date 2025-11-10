@@ -176,7 +176,7 @@ const Register = () => {
               disabled={loading}
               required
             >
-              <option value="owner">Owner</option>
+              <option value="retailer">Retailer</option>
               <option value="supplier">Supplier</option>
               <option value="distributor">Distributor</option>
               <option value="customer">Customer</option>
