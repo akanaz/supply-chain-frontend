@@ -35,15 +35,16 @@ const Login = () => {
         return;
       }
 
-      const userData = querySnapshot.docs.data();
+      // FIXED: Get user data correctly
+      const userData = querySnapshot.docs[0].data();
       const userEmail = userData.email;
 
       try {
         const userCredential = await signInWithEmailAndPassword(auth, userEmail, password);
-        
+
         localStorage.setItem('user', JSON.stringify(userData));
         localStorage.setItem('authToken', userCredential.user.uid);
-        
+
         navigate('/');
       } catch (authError) {
         setError('Incorrect password. Please try again.');
