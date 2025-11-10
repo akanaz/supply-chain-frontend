@@ -1,43 +1,77 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import './Navbar.css';
 
-function Navbar() {
-  const { user, logout } = useAuth() || {};
+const Navbar = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
 
   return (
     <nav className="navbar">
-      <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-        {user?.role === "owner" && <>
-          <li><NavLink to="/assignroles">Assign Roles</NavLink></li>
-          <li><NavLink to="/addproduct">Add Product</NavLink></li>
-        </>}
-        <li><NavLink to="/supply">Supply</NavLink></li>
-        <li><NavLink to="/track">Track</NavLink></li>
-        {user ? (
-          <li>
-            <button
-              className="nav-logout"
-              onClick={logout}
-              style={{
-                background: "#bb86fc",
-                color: "#232323",
-                fontWeight: 700,
-                border: "none",
-                borderRadius: "8px",
-                padding: "11px 22px",
-                fontSize: "1.17rem",
-                marginLeft: "24px",
-                cursor: "pointer",
-                transition: "box-shadow 0.19s, background 0.19s"
-              }}>Logout</button>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">
+          🏢 Supply Chain
+        </Link>
+
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+          <li className="nav-item">
+            <Link to="/" className="nav-link">Home</Link>
           </li>
-        ) : (
-          <li><NavLink to="/login">Login</NavLink></li>
-        )}
-      </ul>
+          
+          {user?.role === 'owner' && (
+            <>
+              <li className="nav-item">
+                <Link to="/assignroles" className="nav-link">Assign Roles</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/addproduct" className="nav-link">Add Product</Link>
+              </li>
+            </>
+          )}
+
+          {user && (
+            <>
+              <li className="nav-item">
+                <Link to="/supply" className="nav-link">Supply</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/track" className="nav-link">Track</Link>
+              </li>
+            </>
+          )}
+        </ul>
+
+        <div className="navbar-auth">
+          {user ? (
+            <>
+              <span className="user-info">Welcome, {user.username}</span>
+              <button onClick={handleLogout} className="logout-btn">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="auth-link">Login</Link>
+              <Link to="/register" className="auth-link register">Register</Link>
+            </>
+          )}
+        </div>
+      </div>
     </nav>
   );
-}
+};
+
 export default Navbar;

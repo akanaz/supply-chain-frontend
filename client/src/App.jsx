@@ -1,20 +1,44 @@
-import React from "react";
+import React from 'react';
 import './App.css';
-
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
-import Navbar from "./components/common/Navbar";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import AssignRoles from "./pages/AssignRoles";
-import AddMed from "./pages/AddMed";
-import Supply from "./pages/Supply";
-import Track from "./pages/Track";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import Navbar from './components/common/Navbar';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import AssignRoles from './pages/AssignRoles';
+import AddMed from './pages/AddMed';
+import Supply from './pages/Supply';
+import Track from './pages/Track';
 
 function ProtectedRoute({ children, ownerOnly }) {
-  const { user } = useAuth() || {};
-  if (!user) return <Navigate to="/login" replace />;
-  if (ownerOnly && user.role !== "owner") return <Navigate to="/" replace />;
+  const { user, loading } = useAuth() || {};
+  
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        background: '#0f172a',
+        color: '#f1f5f9',
+        fontSize: '18px',
+        fontFamily: "'Segoe UI', 'Inter', sans-serif"
+      }}>
+        Loading...
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (ownerOnly && user.role !== 'owner') {
+    return <Navigate to="/" replace />;
+  }
+
   return children;
 }
 
@@ -25,6 +49,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/assignroles" element={
             <ProtectedRoute ownerOnly>
@@ -52,4 +77,5 @@ function App() {
     </AuthProvider>
   );
 }
+
 export default App;
