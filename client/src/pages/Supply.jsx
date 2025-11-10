@@ -11,6 +11,14 @@ const stages = [
   "Sold",
 ];
 
+// Map userRole to owned stage!
+const roleToStage = {
+  supplier: "RMS Processing",
+  distributor: "Distribution",
+  retailer: "Retail",
+  owner: "owner"
+};
+
 function Supply() {
   const [products, setProducts] = useState([]);
   const [updates, setUpdates] = useState({});
@@ -19,7 +27,6 @@ function Supply() {
   const [userRole, setUserRole] = useState("");
   const [username, setUsername] = useState("");
 
-  // ✅ Load user info (from context or localStorage)
   useEffect(() => {
     if (user) {
       setUserRole(user.role);
@@ -34,7 +41,6 @@ function Supply() {
     }
   }, [user]);
 
-  // ✅ Fetch all products
   useEffect(() => {
     getProducts().then(setProducts).catch(console.error);
   }, []);
@@ -43,7 +49,6 @@ function Supply() {
     setUpdates((prev) => ({ ...prev, [id]: parseInt(value) }));
   };
 
-  // ✅ Handle update logic
   const handleUpdate = async (product) => {
     const nextStage = updates[product.id || product._id];
     const currentStage = product.stage || 0;
@@ -54,15 +59,14 @@ function Supply() {
       return;
     }
 
-    // Restrict updates
-    if (userRole !== "owner" && userRole !== stages[currentStage]) {
+    // Permission fix: map userRole to allowed stage
+    if (userRole !== "owner" && stages[currentStage] !== roleToStage[userRole]) {
       setFeedback("🚫 You can only update your assigned stage.");
       setTimeout(() => setFeedback(""), 2500);
       return;
     }
 
     try {
-      // ✅ Store username of who updated this stage
       await updateProduct(product.id || product._id, {
         stage: nextStage,
         completedBy: {
@@ -81,7 +85,6 @@ function Supply() {
     }
   };
 
-  // ✅ Delete (owner only)
   const handleDelete = async (id) => {
     if (userRole !== "owner") {
       setFeedback("🚫 Only the owner can delete products.");
@@ -100,11 +103,10 @@ function Supply() {
     }
   };
 
-  // ✅ Permission check
   const canUpdate = (product) => {
-    const currentStage = stages[product.stage || 0];
+    const currentStageName = stages[product.stage || 0];
     if (userRole === "owner") return true;
-    return userRole === currentStage;
+    return currentStageName === roleToStage[userRole];
   };
 
   return (
