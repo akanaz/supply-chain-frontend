@@ -19,7 +19,8 @@ export const AuthProvider = ({ children }) => {
           const querySnapshot = await getDocs(q);
 
           if (!querySnapshot.empty) {
-            const userData = querySnapshot.docs.data();
+            // FIXED: get data from [0]
+            const userData = querySnapshot.docs[0].data();
             setUser({
               uid: firebaseUser.uid,
               email: firebaseUser.email,
